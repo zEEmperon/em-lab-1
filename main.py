@@ -1,7 +1,5 @@
 import math
 import pandas as pd
-import numpy as np
-import functools
 import matplotlib.pyplot as plt
 
 
@@ -10,18 +8,13 @@ def load_csv(filename: str) -> pd.DataFrame:
 
 
 def main():
-    Var = 16
-    loc = Var
-    scale = Var / 10
-    size = Var * 10
-
     filename = "data.csv"
     df = load_csv(filename)
 
     # histogram
     plt.hist(df["Data"])
     plt.title("Гістограма")
-    # plt.show()
+    plt.show()
 
     minValue = math.floor(df["Data"].min())
     maxValue = math.ceil(df["Data"].max())
@@ -35,12 +28,12 @@ def main():
     print(freq_data)
 
     # Statistics summary
-    a = 1
-
     print()
     print("Statistics summary")
     print()
-
+    print("Mean:", df["Data"].mean())
+    print("Median:", df["Data"].median())
+    print("Quantile:", df["Data"].quantile(0.75))
 
 
 if __name__ == '__main__':
