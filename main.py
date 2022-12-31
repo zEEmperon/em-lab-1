@@ -23,16 +23,24 @@ def main():
     plt.title("Гістограма")
     # plt.show()
 
-    min = math.floor(df["Data"].min())
-    max = math.ceil(df["Data"].max())
+    minValue = math.floor(df["Data"].min())
+    maxValue = math.ceil(df["Data"].max())
 
     # Frequency table
+    freq_data = df.apply(pd.Series.value_counts, bins=[*range(minValue, maxValue + 1)])
+
     print()
     print("Building frequency table")
     print()
-    freq_data = df.apply(pd.Series.value_counts, bins=[*range(min, max + 1)])
-
     print(freq_data)
+
+    # Statistics summary
+    a = 1
+
+    print()
+    print("Statistics summary")
+    print()
+
 
 
 if __name__ == '__main__':
