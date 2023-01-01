@@ -23,7 +23,7 @@ def main():
     freq_data = df.apply(pd.Series.value_counts, bins=[*range(minValue, maxValue + 1)])
 
     print()
-    print("Building frequency table")
+    print("Frequency table")
     print()
     print(freq_data)
 
